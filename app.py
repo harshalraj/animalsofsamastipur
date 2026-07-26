@@ -12,6 +12,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'animals-samastipur-astrology-care-key-2026'
+app.jinja_env.globals.update(enumerate=enumerate)
 
 # --- Credentials ---
 ADMIN_USERNAME = 'admin'
