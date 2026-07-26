@@ -203,5 +203,5 @@ def download_donations():
     )
 
 if __name__ == '__main__':
-    print("Starting Animals of Samastipur Web App on http://127.0.0.1:5000")
-    app.run(debug=True, port=5000)
+    print("Starting Animals of Samastipur Web App on http://127.0.0.1:5001")
+    app.run(debug=True, port=5001)
