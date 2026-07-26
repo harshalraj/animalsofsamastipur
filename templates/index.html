@@ -36,7 +36,7 @@
             </a>
 
             <div class="nav-links" id="navLinks">
-                <a href="#updates"><i class="fa-solid fa-bullhorn"></i> Updates</a>
+                <a href="#vision"><i class="fa-solid fa-eye"></i> Our Vision</a>
                 <a href="#volunteer"><i class="fa-solid fa-hand-holding-heart"></i> Join Team</a>
                 <a href="#astrology-query" class="nav-highlight"><i class="fa-solid fa-moon-stars"></i> Astrology Kundali Report</a>
                 <a href="https://www.instagram.com/animalsofsamastipur/" target="_blank" class="instagram-nav-btn">
@@ -98,44 +98,54 @@
         </div>
     </section>
 
-    <!-- Care Updates Section -->
-    <section class="section-padding updates-section" id="updates">
+    <!-- Our Vision Section -->
+    <section class="section-padding vision-section" id="vision">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag"><i class="fa-solid fa-bullhorn"></i> Ground Reality</div>
-                <h2>Animal Care Updates from Samastipur</h2>
-                <p>Track our latest rescues, daily feeding drives, medical treatments, and adoption journeys.</p>
+                <div class="section-tag"><i class="fa-solid fa-eye"></i> Our Vision</div>
+                <h2>A World Where Every Animal is Safe, Loved & Free</h2>
+                <p>We envision a Samastipur where no animal suffers on the streets — where compassion drives communities to act and every life matters.</p>
             </div>
 
-            <!-- Category Filter Tabs -->
-            <div class="filter-tabs">
-                <button class="filter-btn active" data-category="all">All Updates</button>
-                <button class="filter-btn" data-category="rescue"><i class="fa-solid fa-truck-medical"></i> Rescues</button>
-                <button class="filter-btn" data-category="feeding"><i class="fa-solid fa-bowl-food"></i> Feeding Drives</button>
-                <button class="filter-btn" data-category="medical"><i class="fa-solid fa-syringe"></i> Medical Camps</button>
-                <button class="filter-btn" data-category="adoption"><i class="fa-solid fa-heart"></i> Adoptions</button>
-            </div>
-
-            <!-- Updates Grid -->
-            <div class="updates-grid" id="updatesGrid">
-                {% for item in updates %}
-                <div class="update-card" data-category="{{ item.category }}">
-                    <div class="card-img-wrapper">
-                        <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy">
-                        <span class="category-badge {{ item.category }}">{{ item.category | upper }}</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-date"><i class="fa-regular fa-calendar"></i> {{ item.date }}</div>
-                        <h3 class="card-title">{{ item.title }}</h3>
-                        <p class="card-summary">{{ item.summary }}</p>
-                        <div class="card-footer">
-                            <span class="status-pill"><i class="fa-solid fa-circle-check"></i> {{ item.status }}</span>
+            <!-- Vision Image Gallery -->
+            <div class="vision-gallery">
+                <div class="vision-img-card vision-img-main">
+                    <img src="/img/vision.jpg" alt="Our Vision - Animals of Samastipur" loading="lazy">
+                    <div class="vision-img-overlay">
+                        <div class="vision-img-label">
+                            <i class="fa-solid fa-paw"></i>
+                            <span>Rescue & Rehabilitate</span>
                         </div>
                     </div>
                 </div>
-                {% else %}
-                <p class="no-updates">No updates currently available.</p>
-                {% endfor %}
+                <div class="vision-img-card vision-img-secondary">
+                    <img src="/img/vision_1.jpg" alt="Our Vision - Care for Animals" loading="lazy">
+                    <div class="vision-img-overlay">
+                        <div class="vision-img-label">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>Love & Protect</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision Pillars -->
+            <div class="vision-pillars">
+                <div class="vision-pillar">
+                    <div class="pillar-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                    <h3>Protect Every Life</h3>
+                    <p>From injured strays to abandoned pets — no animal is left behind in Samastipur under our watch.</p>
+                </div>
+                <div class="vision-pillar">
+                    <div class="pillar-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
+                    <h3>Community of Compassion</h3>
+                    <p>We build a network of caring locals, volunteers, and supporters who stand together for animal welfare.</p>
+                </div>
+                <div class="vision-pillar">
+                    <div class="pillar-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3>Sustainable Change</h3>
+                    <p>Through daily feeding, medical camps, and adoptions, we create lasting impact — one animal at a time.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -313,7 +323,7 @@
 
             <div class="footer-links">
                 <h4>Quick Links</h4>
-                <a href="#updates">Care Updates</a>
+                <a href="#vision">Our Vision</a>
                 <a href="#astrology-query">Astrology & Kundali</a>
                 <a href="#volunteer">Join Team</a>
             </div>

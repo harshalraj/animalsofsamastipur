@@ -1,7 +1,7 @@
 import os
 import json
 from datetime import datetime
-from flask import Flask, render_template, request, jsonify, send_file, redirect, url_for
+from flask import Flask, render_template, request, jsonify, send_file, send_from_directory, redirect, url_for
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
@@ -73,6 +73,10 @@ def init_volunteers_excel():
 
 init_donations_excel()
 init_volunteers_excel()
+
+@app.route('/img/<path:filename>')
+def serve_img(filename):
+    return send_from_directory(os.path.join(app.root_path, 'img'), filename)
 
 @app.route('/')
 def index():
@@ -203,5 +207,5 @@ def download_donations():
     )
 
 if __name__ == '__main__':
-    print("Starting Animals of Samastipur Web App on http://127.0.0.1:5001")
-    app.run(debug=True, port=5001)
+    print("Starting Animals of Samastipur Web App on http://127.0.0.1:5000")
+    app.run(debug=True, port=5000)
