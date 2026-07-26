@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "category": "rescue",
+    "title": "Emergency Rescue: Injured Stray Puppy Saved near Station Road",
+    "date": "2026-07-24",
+    "image": "https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80",
+    "summary": "We received an urgent call regarding a puppy hit by a two-wheeler near Samastipur Junction. Our team rushed to the location, provided emergency first aid, and brought him to our shelter facility.",
+    "status": "Recovering smoothly under medication"
+  },
+  {
+    "id": 2,
+    "category": "feeding",
+    "title": "Daily Mass Feeding Drive: 120+ Street Dogs Fed Across Samastipur",
+    "date": "2026-07-22",
+    "image": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80",
+    "summary": "Our morning and evening feeding teams covered Mohanpur, Kasheepur, and Magardahi Ghat. Over 120 stray dogs were served warm, nutritious meals of boiled rice, chicken broth, and pedigree.",
+    "status": "Ongoing Daily Initiative"
+  },
+  {
+    "id": 3,
+    "category": "medical",
+    "title": "Anti-Rabies Vaccination & Deworming Camp",
+    "date": "2026-07-18",
+    "image": "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=800&q=80",
+    "summary": "Organized a special vaccination camp in ward 12. Vaccinated 45 community dogs and distributed reflective collars to prevent night accidents on highways.",
+    "status": "Completed successfully"
+  },
+  {
+    "id": 4,
+    "category": "adoption",
+    "title": "Happy Adoption Story: Luna Finds Her Forever Home!",
+    "date": "2026-07-15",
+    "image": "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=800&q=80",
+    "summary": "Luna, who was rescued with a severe leg infection two months ago, has fully healed and has been adopted by a loving family in Samastipur.",
+    "status": "Adopted"
+  }
+]

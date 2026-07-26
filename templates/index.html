@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care For Animals | Animals of Samastipur</title>
+    <meta name="description" content="Official platform for Animals of Samastipur. Join our animal welfare movement in Samastipur, get rescue updates, and receive an Astrology Kundali report when you donate!">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="top-announcement">
+        <div class="container announcement-content">
+            <span><i class="fa-solid fa-sparkles"></i> Request your Personalized Astrology Kundali PDF Report | Support Animals of Samastipur</span>
+            <a href="#astrology-query" class="btn-sm-sparkle">Ask Query <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-paw"></i></div>
+                <div class="logo-text">
+                    <span class="main-title">Animals of Samastipur</span>
+                    <span class="sub-title">Care & Welfare Foundation</span>
+                </div>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#updates"><i class="fa-solid fa-bullhorn"></i> Updates</a>
+                <a href="#volunteer"><i class="fa-solid fa-hand-holding-heart"></i> Join Team</a>
+                <a href="#astrology-query" class="nav-highlight"><i class="fa-solid fa-moon-stars"></i> Astrology Kundali Report</a>
+                <a href="https://www.instagram.com/animalsofsamastipur/" target="_blank" class="instagram-nav-btn">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-location-dot"></i> Samastipur, Bihar
+            </div>
+            <h1>Empowering Animal Welfare with <span class="gradient-text">Compassion & Cosmic Wisdom</span></h1>
+            <p class="hero-subtext">
+                We are dedicated to rescuing, treating, and feeding stray animals in Samastipur. Submit your astrological query below—our astrologers will prepare a personalized Kundali analysis & answer your question in a PDF report sent to your email!
+            </p>
+            
+            <div class="hero-actions">
+                <a href="#astrology-query" class="btn-primary ripple-btn">
+                    <i class="fa-solid fa-star-of-david"></i> Ask Query & Get Kundali Report
+                </a>
+                <a href="#volunteer" class="btn-secondary">
+                    <i class="fa-solid fa-users"></i> Join Samastipur Team
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-bowl-food"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number">1,500+</span>
+                        <span class="stat-label">Meals Served Monthly</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-suitcase-medical"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number">400+</span>
+                        <span class="stat-label">Animals Rescued & Healed</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-star-of-david"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Kundali Reports Shared</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Care Updates Section -->
+    <section class="section-padding updates-section" id="updates">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag"><i class="fa-solid fa-bullhorn"></i> Ground Reality</div>
+                <h2>Animal Care Updates from Samastipur</h2>
+                <p>Track our latest rescues, daily feeding drives, medical treatments, and adoption journeys.</p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-category="all">All Updates</button>
+                <button class="filter-btn" data-category="rescue"><i class="fa-solid fa-truck-medical"></i> Rescues</button>
+                <button class="filter-btn" data-category="feeding"><i class="fa-solid fa-bowl-food"></i> Feeding Drives</button>
+                <button class="filter-btn" data-category="medical"><i class="fa-solid fa-syringe"></i> Medical Camps</button>
+                <button class="filter-btn" data-category="adoption"><i class="fa-solid fa-heart"></i> Adoptions</button>
+            </div>
+
+            <!-- Updates Grid -->
+            <div class="updates-grid" id="updatesGrid">
+                {% for item in updates %}
+                <div class="update-card" data-category="{{ item.category }}">
+                    <div class="card-img-wrapper">
+                        <img src="{{ item.image }}" alt="{{ item.title }}" loading="lazy">
+                        <span class="category-badge {{ item.category }}">{{ item.category | upper }}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-date"><i class="fa-regular fa-calendar"></i> {{ item.date }}</div>
+                        <h3 class="card-title">{{ item.title }}</h3>
+                        <p class="card-summary">{{ item.summary }}</p>
+                        <div class="card-footer">
+                            <span class="status-pill"><i class="fa-solid fa-circle-check"></i> {{ item.status }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <p class="no-updates">No updates currently available.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Astrology Query Section -->
+    <section class="section-padding astrology-section" id="astrology-query">
+        <div class="container">
+            <div class="astrology-wrapper">
+                <div class="astrology-info">
+                    <div class="cosmic-badge"><i class="fa-solid fa-star"></i> Sacred Cosmic Guidance</div>
+                    <h2>Ask Any Astrology Query & Receive Your Personal <span class="gold-text">Kundali Analysis Report</span></h2>
+                    <p class="section-desc">
+                        As a personal hobby, our team practices Vedic astrology. Submit your birth details and astrological question below. We will craft a personalized Kundali PDF report and email it to you. When we share your report, we will also include details on how you can support our animal care initiatives in Samastipur.
+                    </p>
+
+                    <div class="astrology-features">
+                        <div class="astro-feat-item">
+                            <div class="feat-icon"><i class="fa-solid fa-scroll"></i></div>
+                            <div>
+                                <h4>Detailed Kundali PDF</h4>
+                                <p>Comprehensive birth chart analysis delivered directly to your email.</p>
+                            </div>
+                        </div>
+                        <div class="astro-feat-item">
+                            <div class="feat-icon"><i class="fa-solid fa-circle-question"></i></div>
+                            <div>
+                                <h4>Personalized Query Answer</h4>
+                                <p>Ask any life, career, relationship, or health question related to your chart.</p>
+                            </div>
+                        </div>
+                        <div class="astro-feat-item">
+                            <div class="feat-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                            <div>
+                                <h4>Email Delivery</h4>
+                                <p>We'll email your Kundali report along with options to support our animal shelter.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="form-card glass-card">
+                    <div class="form-card-header">
+                        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Astrology Query Request</h3>
+                        <p>Fill in your birth details & question to receive your report</p>
+                    </div>
+
+                    <form id="astrologyForm" class="astrology-form">
+                        <!-- Personal Details -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="userName" class="form-label">Full Name *</label>
+                                <input type="text" id="userName" name="name" class="form-control" placeholder="e.g. Ramesh Kumar" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmail" class="form-label">Email ID (For Report Delivery) *</label>
+                                <input type="email" id="userEmail" name="email" class="form-control" placeholder="yourname@gmail.com" required>
+                            </div>
+                        </div>
+
+                        <!-- Birth Details -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="userDob" class="form-label">Date of Birth *</label>
+                                <input type="date" id="userDob" name="dob" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userTob" class="form-label">Time of Birth *</label>
+                                <input type="time" id="userTob" name="tob" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userPob" class="form-label">Place of Birth (City, State, Country) *</label>
+                            <input type="text" id="userPob" name="pob" class="form-control" placeholder="e.g. Samastipur, Bihar, India" required>
+                        </div>
+
+                        <!-- Astrological Question -->
+                        <div class="form-group">
+                            <label for="userQuestion" class="form-label">Your Astrological Question *</label>
+                            <textarea id="userQuestion" name="question" class="form-control" rows="3" placeholder="e.g., What does my birth chart say about my career growth over the next year?" required></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-submit" id="submitAstroBtn">
+                            <span>Submit Query & Request Report</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Team / Volunteer Section -->
+    <section class="section-padding volunteer-section" id="volunteer">
+        <div class="container">
+            <div class="volunteer-card-container">
+                <div class="volunteer-content">
+                    <div class="section-tag light-tag"><i class="fa-solid fa-people-group"></i> Local Community</div>
+                    <h2>Join Our On-Ground Team in Samastipur!</h2>
+                    <p>
+                        Are you living in or near Samastipur? We are always looking for compassionate individuals to join us in feeding drives, emergency rescues, medical fostering, and social awareness.
+                    </p>
+                    <ul class="volunteer-list">
+                        <li><i class="fa-solid fa-check-circle"></i> Participate in daily feeding routes</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Assist during emergency medical rescues</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Help foster recovered street animals</li>
+                    </ul>
+                </div>
+                
+                <div class="volunteer-form-wrapper glass-card">
+                    <h3>Volunteer Registration</h3>
+                    <form id="volunteerForm">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" class="form-control" placeholder="Phone / WhatsApp Number *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address *" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="interest" class="form-control">
+                                <option value="Feeding & Care">Feeding & Daily Care</option>
+                                <option value="Emergency Rescue">Emergency Rescue Team</option>
+                                <option value="Medical Fostering">Medical Fostering</option>
+                                <option value="Social Media & Design">Social Media & Design</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" rows="2" placeholder="Tell us a bit about yourself..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-secondary full-width">Submit Volunteer Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="section-padding instagram-section">
+        <div class="container text-center">
+            <div class="insta-badge"><i class="fa-brands fa-instagram"></i> Live Feed & Stories</div>
+            <h2>Follow Us on Instagram</h2>
+            <p class="insta-sub">We regularly post videos, rescue stories, and updates on our Instagram page <strong>@animalsofsamastipur</strong>.</p>
+
+            <div class="insta-box">
+                <div class="insta-avatar">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <h3>@animalsofsamastipur</h3>
+                <p>Animals Of Samastipur • Animal Care & Welfare</p>
+                <a href="https://www.instagram.com/animalsofsamastipur/" target="_blank" class="btn-instagram">
+                    <i class="fa-brands fa-instagram"></i> Visit Official Instagram Page
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="brand-logo">
+                    <div class="logo-icon"><i class="fa-solid fa-paw"></i></div>
+                    <span class="main-title">Animals of Samastipur</span>
+                </div>
+                <p>Dedicated to rescue, feeding, and medical treatment of community animals in Samastipur, Bihar.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#updates">Care Updates</a>
+                <a href="#astrology-query">Astrology & Kundali</a>
+                <a href="#volunteer">Join Team</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Connect With Us</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Samastipur, Bihar, India</p>
+                <p><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/animalsofsamastipur/" target="_blank">@animalsofsamastipur</a></p>
+                <p><i class="fa-solid fa-envelope"></i> care@animalsofsamastipur.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Animals of Samastipur. All rights reserved. Built with compassion for animal welfare.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
